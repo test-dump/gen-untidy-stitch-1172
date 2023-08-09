@@ -1,0 +1,24 @@
+Another way to create a console app in C# is by using Visual Studio, which is an integrated development environment (IDE) from Microsoft. Here is how you can do it:
+
+1. Open Visual Studio.
+2. On the top menu, select `File > New > Project`.
+3. In the `Create a new project` dialog box, select `Console App (.NET Core)` then `Next`.
+4. In the `Configure your new project` dialog box, type `HelloWorld` in the `Project name` field and then select `Create`.
+5. In the editor, replace the contents of the Program.cs file with the following code and save the file.
+
+```csharp
+using System;
+
+namespace HelloWorld
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello, world!");
+        }
+    }
+}
+```
+
+To run the program, select `Debug > Start Debugging` from the top menu, or simply press `F5`. `Hello, World!` is displayed in the console window.
