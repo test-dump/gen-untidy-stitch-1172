@@ -1,24 +1,46 @@
-Another way to create a console app in C# is by using Visual Studio, which is an integrated development environment (IDE) from Microsoft. Here is how you can do it:
+You're asking for unit tests, but it seems you inserted instructions. However, regarding the unit test of "Hello, World!" app in C#, refer to the following.
 
-1. Open Visual Studio.
-2. On the top menu, select `File > New > Project`.
-3. In the `Create a new project` dialog box, select `Console App (.NET Core)` then `Next`.
-4. In the `Configure your new project` dialog box, type `HelloWorld` in the `Project name` field and then select `Create`.
-5. In the editor, replace the contents of the Program.cs file with the following code and save the file.
+Given the simple nature of a `Console.WriteLine` statement, it's not typically something you would write a unit test for. However, if we had a method that returns a string, then it's pretty simple:
+
+Here is a slightly modified version of the console application:
 
 ```csharp
 using System;
 
 namespace HelloWorld
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, world!");
+            Console.WriteLine(HelloWorldMessage());
+        }
+
+        public static string HelloWorldMessage()
+        {
+            return "Hello, world!";
         }
     }
 }
 ```
 
-To run the program, select `Debug > Start Debugging` from the top menu, or simply press `F5`. `Hello, World!` is displayed in the console window.
+And here is a unit test to assert the `HelloWorldMessage` method returns `"Hello, world!"`:
+
+```csharp
+using Xunit;
+using HelloWorld;
+
+namespace HelloWorld.Tests
+{
+    public class ProgramTests
+    {
+        [Fact]
+        public void HelloWorldMessage_ReturnsCorrectMessage()
+        {
+            Assert.Equal("Hello, world!", Program.HelloWorldMessage());
+        }
+    }
+}
+```
+
+This test uses xUnit.net which is a free, open-source, community-focused unit testing tool for the .NET Framework.
